@@ -32,15 +32,15 @@ public class UI {
     
 	// https://stackoverflow.com/questions/2979383/java-clear-the-console
 	public static void clearScreen() {
-	System.out.print("\033[H\033[2J");
-	System.out.flush();
+	System.out.print("\033[H\033[2J");  // Limpando a tela ao mover uma peça
+	System.out.flush(); 
 	}
 	
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
 			String s = sc.next();
 			char column = s.charAt(0);
-			int row = Integer.parseInt(s.substring(1));
+			int row = Integer.parseInt(s.substring(1)); 
 			return new ChessPosition(column, row);
 		}
 		catch (RuntimeException e) {
@@ -61,7 +61,7 @@ public class UI {
 
 	private static void printPiece(ChessPiece piece) {
 		if (piece == null) {
-			System.out.print("-");
+			System.out.print("-"); // se não tiver peças será colocado um -
 		}
 		else {
 			if (piece.getColor() == Color.WHITE) {
@@ -71,6 +71,6 @@ public class UI {
 				System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
 			}
 		}
-		System.out.print(" ");
+		System.out.print(" "); // espaço para as peças não ficarem coladas
 	}
 }
